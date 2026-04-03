@@ -84,7 +84,7 @@ output:
  tuple val(name), file("reads/*.fastq.gz")  ,emit:g_31_reads01_g14_31 
  path "*.{fastx,trimmomatic}.log"  ,emit:g_31_log_file11 
 
-container 'quay.io/viascientific/trimmomatic:1.0'
+container 'quay.io/ummsbiocore/trimmomatic:1.0'
 
 when:
 (params.run_Adapter_Removal && (params.run_Adapter_Removal == "yes")) || !params.run_Adapter_Removal
@@ -330,7 +330,7 @@ input:
 output:
  path "*/${star2}" ,optional:true  ,emit:g14_26_starIndex02_g14_31 
 
-container 'quay.io/viascientific/pipeline_base_image:1.0'
+container 'quay.io/ummsbiocore/pipeline_base_image:1.0'
 stageInMode 'copy'
 
 when:
@@ -746,7 +746,7 @@ output:
  val "_des"  ,emit:g37_24_postfix10_g37_33 
  path "DE_reports/outputs/*_all_deseq2_results.tsv"  ,emit:g37_24_outputFile21_g37_33 
 
-container 'quay.io/viascientific/de_module:4.0'
+container 'quay.io/ummsbiocore/de_module:4.0'
 
 when:
 run_DESeq2 == 'yes'
@@ -930,7 +930,7 @@ output:
  path "GSEA_reports"  ,emit:g37_33_outputFile01_g37_37 
  path "GSEA"  ,emit:g37_33_outputFile11 
 
-container 'quay.io/viascientific/gsea_module:2.0.0'
+container 'quay.io/ummsbiocore/gsea_module:2.0.0'
 
 // SET second output to "{GSEA,outputs}" when launched apps can reach parent directory
 
@@ -1073,7 +1073,7 @@ input:
 output:
  path "{*.Rmd,*.html,inputs,outputs,GSEA}"  ,emit:g37_37_outputDir00 
 
-container 'quay.io/viascientific/de_module:2.1.0'
+container 'quay.io/ummsbiocore/de_module:2.1.0'
 
 script:
 
@@ -1108,7 +1108,7 @@ output:
  val "_lv"  ,emit:g37_42_postfix10_g37_41 
  path "DE_reports/outputs/*_all_limmaVoom_results.tsv"  ,emit:g37_42_outputFile21_g37_41 
 
-container 'quay.io/viascientific/de_module:4.0'
+container 'quay.io/ummsbiocore/de_module:4.0'
 
 when:
 run_limmaVoom == 'yes'
@@ -1296,7 +1296,7 @@ output:
  path "GSEA_reports"  ,emit:g37_41_outputFile01_g37_39 
  path "GSEA"  ,emit:g37_41_outputFile11 
 
-container 'quay.io/viascientific/gsea_module:2.0.0'
+container 'quay.io/ummsbiocore/gsea_module:2.0.0'
 
 // SET second output to "{GSEA,outputs}" when launched apps can reach parent directory
 
@@ -1439,7 +1439,7 @@ input:
 output:
  path "{*.Rmd,*.html,inputs,outputs,GSEA}"  ,emit:g37_39_outputDir00 
 
-container 'quay.io/viascientific/de_module:2.1.0'
+container 'quay.io/ummsbiocore/de_module:2.1.0'
 
 script:
 
